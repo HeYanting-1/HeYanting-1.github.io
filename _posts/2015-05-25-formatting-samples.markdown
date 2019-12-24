@@ -5,8 +5,8 @@ date: 2015-05-25
 categories:
 ---
 
-Polar Bear supports GFM!
-The following text has been taken from [this page](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet).
+
+My Resume [this page](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet).
 
 # H1
 ## H2
@@ -63,12 +63,12 @@ Inline `code` has `back-ticks around` it.
 var s = "JavaScript syntax highlighting";
 alert(s);
 ```
- 
+
 ```python
 s = "Python syntax highlighting"
 print s
 ```
- 
+
 ```
 No language indicated, so no syntax highlighting. 
 But let's throw in a <b>tag</b>.
