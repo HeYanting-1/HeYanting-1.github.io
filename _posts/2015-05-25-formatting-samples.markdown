@@ -8,35 +8,37 @@ categories:
 
 My Resume [this page](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet).
 
-# H1
-## H2
-### H3
-#### H4
-##### H5
-###### H6
+Desired position: English teacher
+
+Name: Yanting  He      
+
+### Phone：15025371650        
+Email：977973052@qq.com
+
+Gender: female
+
+Age：21
+
+##### Education Background
+
+###### School Name
+
+Chongqing University of Education                   2016-2020  
+
+Degree : Undergraduate
+
+Major:  English
 
 
-Emphasis, aka italics, with *asterisks* or _underscores_.
+Work Experience
 
-Strong emphasis, aka bold, with **asterisks** or __underscores__.
++ Chongqing Fenbi Education Technology Co., Ltd The principal of Tongren School    
 
-Combined emphasis with **asterisks and _underscores_**.
+  1. Early stage: organized dual selection meeting, recruited teachers in universities and realized the construction of teacher team.
 
-Strikethrough uses two tildes. ~~Scratch this.~~
+  2. Recruitment period: organized the teachers' team to enroll students through online and offline modes, charged 110,000 tuition fees and enrolled 133 students.
 
-
-1. First ordered list item
-2. Another item
-  * Unordered sub-list. 
-1. Actual numbers don't matter, just that it's a number
-  1. Ordered sub-list
-4. And another item.  
-
-   Some text that should be aligned with the above item.
-
-* Unordered list can use asterisks
-- Or minuses
-+ Or pluses
+  3. Teaching period: teaching administration and student safety management.
 
 
 [I'm an inline-style link](https://www.google.com)
