@@ -4,7 +4,110 @@ title: "An Intro to Git!"
 date: 2015-05-25
 categories:
 ---
-file:///C:/Users/liaolinn/Documents/Tencent%20Files/1248282416/FileRecv/An%20Intro%20to%20Git%20and%20GitHub%20for%20Beginners%20(Tutorial).html
+   
+
+[HubSpot Product and Engineering Blog](https://product.hubspot.com/blog)
+
+# 初学者 Git 和 GitHub 简介（教程）
+
+2015年10月1日 / by [Meghan Nelson](https://product.hubspot.com/blog/author/meghan-nelson)
+
+   Share  
+
+![git_github_tutorial](./An Intro to Git and GitHub for Beginners (Tutorial)_files/Git_101-1.webp)八月，我们举行了 , [女性编码会议](http://www.meetup.com/Women-Who-Code-Boston/events/224072838/) 并主持了一次针对初学者使用 git 和 GitHub 的研讨会。 I first walked through a [slide presentation](https://www.slideshare.net/HubSpot/git-101-git-and-github-for-beginners) 我首先浏览了 幻灯片展示 有关 git 的基础知识和背景，然后我们分成几个小组来运行我创建的教程，以模拟对大型协作项目的工作。活动结束后，我们得到反馈，这是一个有用的动手介绍。因此，如果您还对 git 感到新，请按照以下步骤操作，以便轻松更改代码库、打开拉取请求 （PR） 并将代码合并到 master 分支中。 任何一个重要的 git 和 GitHub 术语是粗体链接到官方 git 参考资料。  开始：安装git,创建一个github账户。 您要做的前两件事是安装 git 并创建一个免费的 GitHub 帐户。按照此处的说明 [这里](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) 安装 git（如果尚未安装）。  请注意，对于本教程，我们将仅在命令行上使用 git。虽然有一些很棒的 git GUI（图形用户界面），但我认为先使用 git 特定命令学习 git 更容易，然后在您更适应该命令后试用 git GUI。  完成此操作后，请在此处创建 GitHub 帐户。  [这里](https://github.com/join).  (（帐户对公共仓库是免费的，但私人仓库需要付费。) 步骤一: 创建一个本地的 git 仓库 当你使用 git 在本地计算机上创建新项目时，你需要创建一个新的  **[仓库](https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository)** (或者经常'**repo**', 短暂地)。 为了使用 git，我们将使用终端。如果您对终端和基本命令没有太多经验，请查看 [该教程](http://mac.appstorm.net/how-to/utilities-how-to/how-to-use-terminal-the-basics/) (尤其是"导航文件系统"和"移动"部分 )。首先，打开一个终端，然后移动到要使用 `cd` (改变目录) 命令。例如，如果您的桌面上有一个"项目"文件夹，则执行类似操作： p>`mnelson:Desktop mnelson$ cd ~/Desktop mnelson:Desktop mnelson$ mkdir myproject mnelson:Desktop mnelson$ cd myproject/`[view raw](https://gist.github.com/cubeton/67a84eb876984f0b5785/raw/d4560016d742865c1fd68d97fcff1feb557d5e19/terminalcd.md)[terminalcd.md](https://gist.github.com/cubeton/67a84eb876984f0b5785#file-terminalcd-md) hosted with ❤ by [GitHub](https://github.com/) 要初始化文件夹根目录中的 git 存储库，可以运行: **[初始化](http://git-scm.com/docs/git-init)** 命令: `mnelson:myproject mnelson$ git init Initialized empty Git repository in /Users/mnelson/Desktop/myproject/.git/`[view raw](https://gist.github.com/cubeton/89793ba1bc947f64658e/raw/f3dba1dd72fda5eeb98b761338aedfc310d29d54/gitinit.md)[gitinit.md](https://gist.github.com/cubeton/89793ba1bc947f64658e#file-gitinit-md) hosted with ❤ by [GitHub](https://github.com/) 步骤二: 在仓库中添加一个新文件继续并添加一个新文件到项目中，使用任何文本编辑器都可或运行 [点击](http://linux.die.net/man/1/touch) 命令。在包含git 仓库的文件夹中添加或修改文件之后，git会注意到仓库的更改。但是，除非您明确地要求git跟踪文件(也就是说，将其提交—我们接下来将更多地讨论提交)，否则git不会跟踪文件。`mnelson:myproject mnelson$ touch mnelson.txt mnelson:myproject mnelson$ ls mnelson.txt`[view raw](https://gist.github.com/cubeton/2d8f224bede4c2dde86b/raw/b865e27cc4715b3a3a4a5839e77ab232ff1b31f9/addfile.md)[addfile.md](https://gist.github.com/cubeton/2d8f224bede4c2dde86b#file-addfile-md) hosted with ❤ by [GitHub](https://github.com/) 创建新文件后，可以使用 [**`git status`**](http://git-scm.com/docs/git-status) 命令查看git中存在的文件。`mnelson:myproject mnelson$ git status 主支干 提交 未跟踪文件:  (用 "git add <文件>..." 包括 在 将被提交的。) 	mnelson.txt 除了未跟踪的文件之外，没有添加任何要提交的内容(用 "git add" 去追踪)`[view raw](https://gist.github.com/cubeton/02e849bbffcbea1e9a61/raw/71c93139666a8a4e06795f53c9aec5db95e6019a/gitstatus.md)[gitstatus.md](https://gist.github.com/cubeton/02e849bbffcbea1e9a61#file-gitstatus-md) hosted with ❤ by [GitHub](https://github.com/)这基本上是说，“嘿，我们注意到您创建了一个名为mnelson的新文件。但是除非你用 '`git 添加' `命令不要对它进行任何更改。" 附加: 登录环境、提交和您当您第一次学习git时，最容易混淆的部分之一是登录环境的概念以及它与提交的关系。一个 **[提交](http://git-scm.com/docs/git-commit)** 是您自上次提交以来更改的文件的记录。本质上，您可以修改您的仓库(例如，添加一个文件或修改一个文件)，然后告诉git将这些文件提交。提交是项目的重要构成部分，允许您在任何时候返回到项目的状态。那么，如何告诉git将哪些文件放入提交呢?这就是 [**登录环境** 或者 **索引**](https://git-scm.com/book/en/v2/Getting-Started-Git-Basics) 进入。 如步骤二所示，当您对您的仓库进行更改时，git会注意到文件已经更改，但不会对其进行任何操作(比如在提交中添加它)。要将文件添加到提交中，首先需要将其添加到登录环境中。 为此，您可以使用 **[git commit](http://git-scm.com/docs/git-add) <文件名>** 命令(见步骤三)。使用git 的添加命令将所需的所有文件添加到暂存环境后，您可以告诉git使用以下命令将它们打包到提交中 [**git commit** ](http://git-scm.com/docs/git-commit)命令。 注意：暂存环境，也称为“暂存”，是新的首选术语，但是您也可以将其称为“索引”。 步骤三：将文件添加到暂存环境使用以下命令将文件添加到暂存环境 **git add** 命令。 如果重新运行git status命令，则会看到git已将文件添加到登录环境中（请注意“提交更改”这一项）。 `mnelson:myproject mnelson$ git status On branch master Initial commit Changes to be committed:  (use "git rm --cached ..." to unstage) 	new file:   mnelson.txt`[view raw](https://gist.github.com/cubeton/28f7bea3b232f67e031c/raw/875157cd78d75c23f3f0e29bf0c97989e3d52937/addtostaging.md)[addtostaging.md](https://gist.github.com/cubeton/28f7bea3b232f67e031c#file-addtostaging-md) hosted with ❤ by [GitHub](https://github.com/)
+
+
+
+ 重申一下，该文件 **还未** 添加到提交项，但即将被添加到。
+
+ 
+
+### 步骤四：创建提交
+
+创建您的第一次提交
+
+运行命令 `git commit -m "关于您提交的消息"`
+
+
+
+```
+mnelson:myproject mnelson$ git commit -m "This is my first commit!"
+[master (root-commit) b345d9a] This is my first commit!
+ 1 file changed, 1 insertion(+)
+ create mode 100644 mnelson.txt
+```
+
+[view raw](https://gist.github.com/cubeton/1068d965d147b4039e4d/raw/5c3262c3f6e3c28328ba57ea33c512dbab149fcf/commit.md)[commit.md](https://gist.github.com/cubeton/1068d965d147b4039e4d#file-commit-md) hosted with ❤ by [GitHub](https://github.com/)
+
+
+
+最终提交的信息应该与所提交信息中包含的内容相关——也许是一个新特性，也许是一个问题修复，也许只是一个打字错误。不要放像“asdfadsf”或“foobar”这样的信息。这让其他看到你所提交信息的人很难过。非常非常难过。
+
+ 
+
+### 步骤五：新建分支
+
+现在，您已经进行了一次新的提交，让我们尝试一些更高级的东西。
+
+假设您要制作一个新功能，但担心在开发功能时会对主项目进行更改。 这是 **[git 分支 ](https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is)**[进入的地方. ](https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is)
+
+[分支允许您在项目的“状态”之间来回移动。例如，如果要向网站添加新页面，则可以仅为该页面创建一个新分支，而不会影响项目的主要部分。 完成页面后，您可以 合并从分支到主分支的更改。创建新分支时， Git 会 跟踪您的分支“分支”的提交，因此它知道所有文件的历史记录。 ](https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is)
+
+[假设您在master分支上，并且想要创建一个新分支来开发您的网页。您将执行以下操作：运行 ](https://git-scm.com/book/en/v1/Git-Branching-What-a-Branch-Is)**[`git checkout -b `](http://git-scm.com/docs/git-checkout)**. 这个命令将自动创建一个新的分支，然后在它上面“检查”，这意味着git将把你从主分支移到那个分支。
+
+运行上述命令后，您可以使用 **[`git branch`](http://git-scm.com/docs/git-branch)**命令来确认您的分支已创建:
+
+
+
+```
+mnelson:myproject mnelson$ git branch
+  master
+* my-new-branch
+```
+
+[view raw](https://gist.github.com/cubeton/fa25a25f322a2cd5f405/raw/81033788d288adeffe260bd724ab2699b29e3e35/gitbranch.md)[gitbranch.md](https://gist.github.com/cubeton/fa25a25f322a2cd5f405#file-gitbranch-md) hosted with ❤ by [GitHub](https://github.com/)
+
+
+
+分支名称旁边带有星号则表示在给定时间指向的分支。 
+
+现在，如果您切换回主分支并进行更多提交，则新的分支将不会出现任何更改，除非您将这些更改**合并到新的分支上。**
+
+ **步骤六:在GitHub上创建一个新的存储库如果你只想在本地跟踪你的代码，你不需要使用GitHub。但是如果你想和一个团队合作，你可以使用github来协作修改项目代码。 要在GitHub上创建一个新的库，登录并转到GitHub主页。你会看到一个绿色的“+ New repository”按钮: ![Git_101_Screenshot1-2.png](./An Intro to Git and GitHub for Beginners (Tutorial)_files/Git_101_Screenshot1-2.webp)   点击按钮后，GitHub会要求你命名你的回购并提供一个简短的描述:![Git_101_Screenshot_2-1.png](./An Intro to Git and GitHub for Beginners (Tutorial)_files/Git_101_Screenshot_2-1.webp)      填写完信息后，按“创建存储库”按钮来创建新的回购。GitHub会询问你是想从头创建一个新的回购，还是想添加一个本地创建的回购。在本例中，由于我们已经在本地创建了一个新的库，我们希望将其推到GitHub上，因此遵循 \**'....或者从命令行推送现有的存储库'\** 部分: `mnelson:myproject mnelson$ git remote add origin https://github.com/cubeton/mynewrepository.git mnelson:myproject mnelson$ git push -u origin master Counting objects: 3, done. Writing objects: 100% (3/3), 263 bytes | 0 bytes/s, done. Total 3 (delta 0), reused 0 (delta 0) To https://github.com/cubeton/mynewrepository.git \* [new branch]      master -> master Branch master set up to track remote branch master from origin.`[view raw](https://gist.github.com/cubeton/3a2616c44e35ca68a6b0/raw/41e5758cfdbd7db8a1659c1adaba9346680097f9/addgithub.md)[addgithub.md](https://gist.github.com/cubeton/3a2616c44e35ca68a6b0#file-addgithub-md) hosted with ❤ by [GitHub](https://github.com/) (您将希望将第一个命令行中的URL更改为本节中列出的GitHub，因为您的GitHub用户名和仓库名称是不同的。) 步骤七:将一个分支推到GitHub现在,我们将 \**更新\**在分支中提交到新的GitHub 库。这样其他人就可以看到你所做的改变。如果它们得到存储库所有者的批准，则可以将更改合并到主分支中。要将更改推送到GitHub上的新分支，您需要运行 `\**[git push](http://git-scm.com/docs/git-push) origin yourbranchname\**. `GitHub会在远程库中自动为你创建分支: `mnelson:myproject mnelson$ git push origin my-new-branch Counting objects: 3, done. Delta compression using up to 8 threads. Compressing objects: 100% (2/2), done. Writing objects: 100% (3/3), 313 bytes | 0 bytes/s, done. Total 3 (delta 0), reused 0 (delta 0) To https://github.com/cubeton/mynewrepository.git \* [new branch]      my-new-branch -> my-new-branch`[view raw](https://gist.github.com/cubeton/bf8274609c344b6d0e70/raw/4764e740cac9a48eefad341d9e34ceb09f89b73f/addnewbranchgithub.md)[addnewbranchgithub.md](https://gist.github.com/cubeton/bf8274609c344b6d0e70#file-addnewbranchgithub-md) hosted with ❤ by [GitHub](https://github.com/) 您可能想知道上面命令中的“origin”单词是什么意思。当您将远程存储库克隆到本地机器时，git将创建一个 \**别名\** 给你。几乎在所有情况下都调用这个别名"[\**origin\**](https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes)."它实际上是远程存储库URL的简写。因此，要将更改推送到远程存储库，可以使用以下命令: \**`git push git@github.com:git/git.git yourbranchname`\** or \**`git push origin yourbranchname`\**(如果这是您第一次在本地使用GitHub，它可能会提示您使用GitHub用户名和密码登录。)如果您刷新GitHub页面，您将看到一个说明，说明一个以您的名字命名的分支刚刚被推送到存储库中。你也可以点击“分支”链接来查看你的分支。[![Git_101_Screenshot2.png](./An Intro to Git and GitHub for Beginners (Tutorial)_files/Git_101_Screenshot2.webp)](https://cloud.githubusercontent.com/assets/5241432/9189475/da30eb86-3fb6-11e5-934f-ca596a2cac69.png)现在单击上面屏幕截图中的绿色按钮。我们要做一个 \**更新请求\**! 步骤八：创建PRPR是一种提醒存储库所有者要更改其代码的方式。 它允许他们检查代码，并确保代码看起来不错，然后再将更改放入master分支。这是提交PR页面之前的样子:[![Git_101_Screenshot_4.png](./An Intro to Git and GitHub for Beginners (Tutorial)_files/Git_101_Screenshot_4.webp)](https://cloud.githubusercontent.com/assets/5241432/9189500/4688c07e-3fb7-11e5-99ed-d75b50ed9e48.png) 这是您提交PR请求后的样子：[![Git_101_Screenshot_5.png](./An Intro to Git and GitHub for Beginners (Tutorial)_files/Git_101_Screenshot_5.webp)](https://cloud.githubusercontent.com/assets/5241432/9189528/b39a7176-3fb7-11e5-87b1-7fed3e63b6bb.png) 您可能会在底部看到一个绿色的大按钮，上面显示“合并拉取请求”。 单击 这意味着您将把更改合并到master分支中。请注意，此按钮并非总是绿色。 在某些情况下，它将是灰色的，这意味着您面临\**合并冲突。\** . 这是当一个文件中的更改与另一个文件中的更改冲突并且git无法确定要使用哪个版本时。 您必须手动输入 并告诉git使用哪个版本。有时，您将成为回购的共同所有者或唯一所有者，在这种情况下，您可能无需创建PR来合并您的更改。 但是，创建一个分支仍然是一个好主意，这样您可以保留更完整的更新历史记录， 并确保在进行更改时始终创建一个新分支。 步骤九：合并PR继续并单击绿色的“合并拉取请求”按钮。 这会将您的更改合并到master分支中。[![Git_101_Screenshot_6.png](./An Intro to Git and GitHub for Beginners (Tutorial)_files/Git_101_Screenshot_6.webp)](https://cloud.githubusercontent.com/assets/5241432/9189587/76631d98-3fb8-11e5-9fdb-17e7dec1c2a4.png) 完成后，建议您删除分支（太多分支会变得凌乱），因此也请点击灰色的“删除分支”按钮。您可以通过单击新存储库首页上的“提交”链接来仔细检查提交是否已合并。![Git_101_Screenshot_7.png](./An Intro to Git and GitHub for Beginners (Tutorial)_files/Git_101_Screenshot_7.webp) 这将显示 该分支中所有提交的列表。 您可以看到我刚刚合并的那一个(合并PR #2).![Git_101_Screenshot_8.png](./An Intro to Git and GitHub for Beginners (Tutorial)_files/Git_101_Screenshot_8.webp)您还可以在右侧看到提交。[\**散列码\**](https://git-scm.com/docs/git-hash-object) 散列码是 散列码是该特定提交的唯一标识符。 这对于引用特定的提交以及撤消更改很有用。(使用 `\**[git还原](http://git-scm.com/docs/git-revert)\** <散列码>` 命令回溯). 步骤十: 将GitHub上的更改反馈到您的计算机现在，GitHub上的仓库看起来与本地计算机上的仓库有所不同。 例如，您在分支中进行的提交并合并到master分支中的提交在本地计算机上的master分支中并不存在。为了获得您或其他人在GitHub上合并的最新更改，可以使用 `\**git pull origin master\** `主命令(在主分支上工作时)。`mnelson:myproject mnelson$ git pull origin master remote: Counting objects: 1, done. remote: Total 1 (delta 0), reused 0 (delta 0), pack-reused 0 Unpacking objects: 100% (1/1), done. From https://github.com/cubeton/mynewrepository \* branch            master     -> FETCH_HEAD   b345d9a..5381b7c  master     -> origin/master Merge made by the 'recursive' strategy. mnelson.txt | 1 + 1 file changed, 1 insertion(+)`[view raw](https://gist.github.com/cubeton/48b5c726b496d50c3975/raw/fe2c68e0988c467fd218587e2397552076355b52/pulloriginmaster.md)[pulloriginmaster.md](https://gist.github.com/cubeton/48b5c726b496d50c3975#file-pulloriginmaster-md) hosted with ❤ by [GitHub](https://github.com/)这将显示所有已更改的文件以及它们是如何更改的。现在我们可以用 [\**`git log`\**](http://git-scm.com/docs/git-log) 再次命令以查看所有新提交。(您可能需要将分支切换回主分支。您可以使用 `\**git checkout master\** `主命令来实现这一点。)`mnelson:myproject mnelson$ git log commit 3e270876db0e5ffd3e9bfc5edede89b64b83812c Merge: 4f1cb17 5381b7c Author: Meghan Nelson  Date:   Fri Sep 11 17:48:11 2015 -0400     Merge branch 'master' of https://github.com/cubeton/mynewrepository commit 4f1cb1798b6e6890da797f98383e6337df577c2a Author: Meghan Nelson  Date:   Fri Sep 11 17:48:00 2015 -0400     added a new file commit 5381b7c53212ca92151c743b4ed7dde07d9be3ce Merge: b345d9a 1e8dc08 Author: Meghan Nelson  Date:   Fri Sep 11 17:43:22 2015 -0400     Merge pull request #2 from cubeton/my-newbranch        Added some more text to my file commit 1e8dc0830b4db8c93efd80479ea886264768520c Author: Meghan Nelson  Date:   Fri Sep 11 17:06:05 2015 -0400     Added some more text to my file commit b345d9a25353037afdeaa9fcaf9f330effd157f1 Author: Meghan Nelson  Date:   Thu Sep 10 17:42:15 2015 -0400     This is my first commit!`[view raw](https://gist.github.com/cubeton/48f55c5a237cd8e1a238/raw/3e31113a073b9bdec16800407d718b631dd0f587/gitlogaftermerge.md)[gitlogaftermerge.md](https://gist.github.com/cubeton/48f55c5a237cd8e1a238#file-gitlogaftermerge-md) hosted with ❤ by [GitHub](https://github.com/)步骤十一: 享受你的git glory您已经成功地创建了PR并将代码合并到主分支。恭喜你!如果您想更深入地研究一下，请查看 [this Git101 folder](https://github.com/cubeton/git101/tree/master/TurtorialInfo) 文件夹中的文件，了解更多关于使用git和GitHub的技巧。  我还建议花一些时间与您的团队一起模拟一个较小的小组项目，就像我们在这里所做的那样。 让您的团队使用您的团队名称创建一个新文件夹，并向其中添加一些带有文本的文件。 然后，尝试将这些更改推送到此远程仓库中。 这样，您的团队就可以开始对最初没有创建的文件进行更改，并使用PR功能进行练习。 并且，使用GitHub上的git blame和git history工具熟悉跟踪文件中进行了哪些更改以及谁进行了这些更改。 您使用git的次数越多，您将越感到舒适。 （反正我是无法抗拒。）**
+
+
+
+
+
+**![Meghan Nelson](./An Intro to Git and GitHub for Beginners (Tutorial)_files/0027c58.webp)Written by [Meghan Nelson](https://product.hubspot.com/blog/author/meghan-nelson)**
+
+
+
+
+
+
+
+
+
+
+
+**Subscribe for updates\*HubSpot Product needs the contact information you provide to us to contact you about our products and services. You may unsubscribe from these communications at anytime. For information on how to unsubscribe, as well as our privacy practices and commitment to protecting your privacy, check out our Privacy Policy.Topics[Product](https://product.hubspot.com/blog/topic/product)[Engineering](https://product.hubspot.com/blog/topic/engineering)[Design](https://product.hubspot.com/blog/topic/design)[Product Management](https://product.hubspot.com/blog/topic/product-management)[UX](https://product.hubspot.com/blog/topic/ux)[Culture](https://product.hubspot.com/blog/topic/culture)[Career Growth](https://product.hubspot.com/blog/topic/career-growth)[![New Call-to-action](./An Intro to Git and GitHub for Beginners (Tutorial)_files/0ee48652-14c2-4be1-ae50-b7d56578e6be.webp)](https://product.hubspot.com/cs/c/?cta_guid=8786bd32-e007-41a7-9f1a-85910d27cb25&placement_guid=8947c9f0-e8f1-40b2-8679-f3996800d913&portal_id=51294&canon=https%3A%2F%2Fproduct.hubspot.com%2Fblog%2Fgit-and-github-tutorial-for-beginners&redirect_url=APefjpFPgMByub0oVF7ckSV8FzGghy5ZsD1XZZHCIACUsXt-llMFevGw4nlJ6E_Vyu1IQLovkbCKGUM6O5EI3QOWIpXaNkwO2iBiNAVYeFBr6V-ChtnO8u_R0nfw5LHiX9IhvTCcT7nRNPkOdPH6OgtS0yUC8LVsD754dro2Q2dLaGY7_Dhc3RA&click=6dbd9601-3602-4912-9ed1-a6f386f9d5be&hsutk=97218259c08d7f8fb8677b6ba30fa505&signature=AAH58kEr7-QHV7Wh0mM-gtoYJG6PqsZfUw&utm_referrer=https%3A%2F%2Fwww.google.com%2F&pageId=3256567331&__hstc=90302427.97218259c08d7f8fb8677b6ba30fa505.1567409182088.1567409182088.1567409182088.1&__hssc=90302427.1.1567409182089&__hsfp=1189399445&contentType=blog-post)**
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+**[What is HubSpot](https://www.hubspot.com/what-is-hubspot)|[Our Story](https://www.hubspot.com/internet-marketing-company)|[Our Products](https://www.hubspot.com/products)|[Culture Code](https://blog.hubspot.com/blog/tabid/6307/bid/34234/The-HubSpot-Culture-Code-Creating-A-Company-We-Love.aspx)[Facebook](https://www.facebook.com/HubSpotDevelopment?fref=ts)|[Twitter](https://twitter.com/HubSpotDev)|[Instagram](https://instagram.com/hubspotdev/) **
 
 
 
