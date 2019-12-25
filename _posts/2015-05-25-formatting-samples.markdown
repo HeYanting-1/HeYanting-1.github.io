@@ -6,9 +6,9 @@ categories:
 ---
 
 
-My Resume [this page](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet).
+​                                                                    My Resume [this page](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet).
 
-Desired position: English teacher
+​                                                            Desired position: English teacher
 
 Name: Yanting  He      
 
