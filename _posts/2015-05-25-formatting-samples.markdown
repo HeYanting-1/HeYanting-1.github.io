@@ -8,8 +8,6 @@ categories:
 
 ​                                                                    My Resume [this page](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet).
 
-#### 
-
 ### Desired position: English teacher 
 
 ### About Me
