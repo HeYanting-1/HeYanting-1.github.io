@@ -8,39 +8,45 @@ categories:
 
 ​                                                                    My Resume [this page](https://github.com/adam-p/markdown-here/wiki/Markdown-Here-Cheatsheet).
 
-​                                                            Desired position: English teacher
+#### Desired position: English teacher   
 
-Name: Yanting  He      
+### About Me
 
-### Phone：15025371650        
+Name: Yanting  He 
+
+Phone：15025371650        
+
 Email：977973052@qq.com
 
 Gender: female
 
 Age：21
 
-##### Education Background
+### Education Background
 
-###### School Name
-
-Chongqing University of Education                   2016-2020  
+School Name：Chongqing University of Education                   2016-2020  
 
 Degree : Undergraduate
 
 Major:  English
 
-
-Work Experience
+### Work Experience
 
 + Chongqing Fenbi Education Technology Co., Ltd The principal of Tongren School    
 
   1. Early stage: organized dual selection meeting, recruited teachers in universities and realized the construction of teacher team.
-
-  2. Recruitment period: organized the teachers' team to enroll students through online and offline modes, charged 110,000 tuition fees and enrolled 133 students.
-
+2. Recruitment period: organized the teachers' team to enroll students through online and offline modes, charged 110,000 tuition fees and enrolled 133 students.
   3. Teaching period: teaching administration and student safety management.
 
-Professional Qualification Certificates
++ Xingzhi Primary School in Hechuan ● English intern teacher           Sep 2019-Now
+
+  Responsible for teaching English for the first and third grades.
+
++ Chongqing Dongfang Art School ●English teacher         Sep 2017-Sep 2018
+
+  As a teacher: taught New Concept English and YLE.
+
+### Professional Qualification Certificates
 
 TEM-4
 
